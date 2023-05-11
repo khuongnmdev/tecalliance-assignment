@@ -1,0 +1,22 @@
+.welcome {
+  padding: 10px;
+}
+.logout-link {
+  color: #ff4075;
+  padding-left: 10px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.item__title {
+  flex: 1 0 auto;
+  max-width: 50vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

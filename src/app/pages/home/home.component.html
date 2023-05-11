@@ -1,3 +1,16 @@
-<p>
-  home works!
-</p>
+<div class="welcome">
+  <span>
+    Welcome <b>{{ userService.currentUser$ | async }}</b>
+  </span>
+  <a (click)="logout()" class="logout-link">(Logout)</a>
+</div>
+<div class="list-todo">
+  <div *ngFor="let item of todoList$ | async; trackBy: trackTodo" class="item">
+    <mat-checkbox class="item-checkbox"> </mat-checkbox>
+    <span class="item__title" [ngClass]="{ 'is-completed': item.completed }">{{
+      item.title
+    }}</span>
+    <button mat-raised-button color="primary">Edit</button>
+    <button mat-raised-button color="warn">Delete</button>
+  </div>
+</div>

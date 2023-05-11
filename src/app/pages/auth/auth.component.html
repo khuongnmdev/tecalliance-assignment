@@ -1,3 +1,26 @@
-<p>
-  auth works!
-</p>
+<mat-card class="card-login">
+  <mat-card-content>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="emailFormControl"
+        placeholder="Ex. pat@example.com"
+      />
+      <mat-error *ngIf="emailFormControl.invalid">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-footer class="card-footer">
+    <button
+      color="primary"
+      mat-raised-button
+      (click)="login()"
+      [disabled]="emailFormControl.invalid"
+    >
+      Login
+    </button>
+  </mat-card-footer>
+</mat-card>

@@ -18,4 +18,8 @@ export class UserService {
     this._currentUser$.next(email);
   }
 
+  public logout() {
+    this._currentUser$.next('');
+  }
+
 }
