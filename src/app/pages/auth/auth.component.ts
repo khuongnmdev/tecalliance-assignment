@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { first, map, of, switchMap, tap } from 'rxjs';
+import { first, of, switchMap, tap } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class AuthComponent implements OnInit {
     this.userService.getUserList().subscribe();
   }
 
-  protected fillTestEmail(){
+  protected fillTestEmail() {
     this.emailFormControl.setValue('Sincere@april.biz');
   }
 

@@ -1,0 +1,11 @@
+<mat-card class="card-login">
+  <mat-card-content>
+    <p>
+      Delete <b>{{ data.title }}</b> ?
+    </p>
+  </mat-card-content>
+  <mat-card-footer class="card-footer">
+    <button color="warn" mat-raised-button (click)="confirm()">OK</button>
+    <button color="primary" mat-raised-button (click)="cancel()">Cancel</button>
+  </mat-card-footer>
+</mat-card>

@@ -1,17 +1,39 @@
-<div class="welcome">
+<div class="user-panel" *ngIf="userService.currentUser$ | async as currentUser">
   <span>
-    Welcome <b>{{ userService.currentUser$ | async }}</b>
+    Welcome <b>{{ currentUser.name }}</b>
   </span>
   <a (click)="logout()" class="logout-link">(Logout)</a>
 </div>
+
+<form class="add-todo" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="input-field">
+    <input matInput formControlName="title" />
+  </mat-form-field>
+  <button mat-raised-button color="primary">Submit</button>
+</form>
+
 <div class="list-todo">
-  <div *ngFor="let item of todoList$ | async; trackBy: trackTodo" class="item">
-    <mat-checkbox class="item-checkbox"> </mat-checkbox>
-    <span class="item__title" [ngClass]="{ 'is-completed': item.completed }" >
+  <div
+    *ngFor="
+      let item of todoList$ | async;
+      let index = index;
+      trackBy: trackTodo
+    "
+    class="item"
+  >
+    <mat-checkbox
+      class="item-checkbox"
+      color="primary"
+      [(ngModel)]="item.completed"
+    >
+    </mat-checkbox>
+    <span class="item__title" [ngClass]="{ 'is-completed': item.completed }">
       {{ item.title }}
     </span>
-    <button mat-raised-button color="primary" (click)="edit(item)">Edit</button>
-    <button mat-raised-button color="warn" (click)="delete(item)">
+    <button mat-raised-button color="accent" (click)="edit(item, index)">
+      Edit
+    </button>
+    <button mat-raised-button color="warn" (click)="delete(item, index)">
       Delete
     </button>
   </div>
