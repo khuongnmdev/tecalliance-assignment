@@ -111,6 +111,7 @@ export class HomeComponent implements OnInit {
           map(todoList => {
             todoList.push(todo);
             this._todoList$.next(todoList);
+            this.addForm.get('title')?.reset();
           })
         )
       })
