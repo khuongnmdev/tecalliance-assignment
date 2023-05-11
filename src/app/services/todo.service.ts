@@ -16,4 +16,14 @@ export class TodoService {
     return this.httpClient
       .get<ToDo[]>('https://jsonplaceholder.typicode.com/todos')
   }
+
+  public addTodo(item: ToDo) {
+    return this.httpClient
+      .get<ToDo[]>('https://jsonplaceholder.typicode.com/todos')
+  }
+
+  public updateTodo(item: ToDo) {
+    return this.httpClient
+      .get<ToDo[]>(`https://jsonplaceholder.typicode.com/todos`)
+  }
 }

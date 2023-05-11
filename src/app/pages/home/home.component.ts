@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadTodoList();
+    this.getTodoList();
   }
 
   protected logout(): void {
@@ -40,7 +40,15 @@ export class HomeComponent implements OnInit {
     return item.id;
   }
 
-  private loadTodoList() {
+  protected edit(item: ToDo) {
+
+  }
+
+  protected delete(item: ToDo) {
+
+
+  }
+  private getTodoList() {
     this.todoService.getTodoList().pipe(
       map(todoList => this._todoList$.next(todoList))
     ).subscribe()

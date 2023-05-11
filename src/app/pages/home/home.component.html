@@ -7,10 +7,12 @@
 <div class="list-todo">
   <div *ngFor="let item of todoList$ | async; trackBy: trackTodo" class="item">
     <mat-checkbox class="item-checkbox"> </mat-checkbox>
-    <span class="item__title" [ngClass]="{ 'is-completed': item.completed }">{{
-      item.title
-    }}</span>
-    <button mat-raised-button color="primary">Edit</button>
-    <button mat-raised-button color="warn">Delete</button>
+    <span class="item__title" [ngClass]="{ 'is-completed': item.completed }" >
+      {{ item.title }}
+    </span>
+    <button mat-raised-button color="primary" (click)="edit(item)">Edit</button>
+    <button mat-raised-button color="warn" (click)="delete(item)">
+      Delete
+    </button>
   </div>
 </div>
